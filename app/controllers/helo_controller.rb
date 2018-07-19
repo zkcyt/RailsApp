@@ -1,20 +1,13 @@
 class HeloController < ApplicationController
 
-  def index
-    if params['msg'] != nil then
-        msg = 'Hello, ' + params['msg'] + '!'
-    else
-        msg = 'This is sample page.'
-    end
+  # protect_from_forgery
+  layout 'helo'
 
-    html = '
-    <html>
-    <body>
-      <h1>Sample Page</h1>
-      <p>' + msg + '</p>
-    </body>
-    </html>
-    '
-    render html: html.html_safe
+  def index
+      @header = 'layout sample'
+      @footer = 'copyright hSuzuki 2018'
+      @title = 'New Layout'
+      @msg = 'This is a sample page'
   end
+
 end
